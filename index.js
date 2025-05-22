@@ -40,6 +40,8 @@ db.connect((err) => {
     console.log("Conectado a la base de datos!");
 });
 
+
+
 // Middleware para verificar token
 const verificarToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
@@ -57,6 +59,14 @@ const verificarToken = (req, res, next) => {
         next();
     });
 };
+
+// Welcome route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Bienvenido a Lookode',
+    secure: req.secure
+  });
+});
 
 app.post('/registro', upload.single('fileImg'), (req, res) => {
     const { nombre, correo, contra, twitter, ig } = req.body;
