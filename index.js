@@ -29,11 +29,11 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 const db = mysql2.createConnection({
-    host: "turntable.proxy.rlwy.net",
+    host: "mainline.proxy.rlwy.net", 
     user: "root",
-    password: "RwOwYrIlxHWuzZDPjBeJbTjgEMHcwmvB",
+    password: "KpYZFBetbQvSpEEntjsLbnLnLUwvdqdT",
     database: "Lookode",
-    port: 14593
+    port: 24376
 });
 db.connect((err) => {
     if (err) throw err;
