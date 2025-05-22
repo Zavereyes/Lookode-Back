@@ -10,14 +10,18 @@ const port = 3001;
 
 const JWT_SECRET = 'tu_clave_secreta_muy_segura';
 
+const FRONT_URL = 'https://lookode-d9yt.vercel.app';
+
 const corsOptions = {
-    origin: '*', // Permite solo solicitudes desde el frontend
-    //methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Permite el envío de cookies o credenciales si las necesitas
-    //optionsSuccessStatus: 204
+  origin: FRONT_URL,                // Origen fijo — ¡no “*” si usas credentials!
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
+  credentials: true,                // Si luego envías cookies
+  allowedHeaders: ['Content-Type','Authorization']
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));         // Monta CORS antes de tus rutas
+app.options('*', cors(corsOptions)); // Responde preflights OPTIONS
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
