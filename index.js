@@ -10,7 +10,7 @@ const port = 3001;
 
 const JWT_SECRET = 'tu_clave_secreta_muy_segura';
 
-const FRONT_URL = 'https://lookode-d9yt.vercel.app';
+const FRONT_URL = 'https://lookode-front.onrender.com';
 
 const corsOptions = {
   origin: FRONT_URL,                // Origen fijo — ¡no “*” si usas credentials!
